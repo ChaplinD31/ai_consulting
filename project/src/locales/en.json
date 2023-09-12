@@ -1,0 +1,43 @@
+{
+  "navbar": {
+    "about": "About",
+    "news": "News",
+    "offices": "Offices",
+    "services": "Services",
+    "partners": "Partners",
+    "publications": "Publications",
+    "contacts": "Contacts"
+  },
+  "sections": {
+    "titul": {
+      "title": "AI-consulting studio",
+      "description": "The company provides services for the development and implementation of software and hardware-software solutions for the effective use of artificial intelligence in business, state and municipal structures.",
+      "button": "Show offices list",
+      "technic-vision": "Technic vision",
+      "preprocessing": "Preprocessing",
+      "data-mining": "Data-mining",
+      "thematic-modelling": "Thematic modelling"
+    },
+    "news": "News",
+    "services": {
+      "title": "Services for data processing",
+      "description": "Our business is not as simple as it might seem: the strengthening and development of the internal structure ensures the relevance of the analysis of existing patterns of behavior. It should be noted that the deep level of immersion directly depends on."
+    },
+    "offices": {
+      "title": "Offices we provide",
+      "description": "Our business is not as simple as it might seem: the strengthening and development of the internal structure ensures the relevance of the analysis of existing patterns of behavior. It should be noted that the deep level of immersion directly depends on."
+    },
+    "partners": "Partners",
+
+    "about": {
+      "title": "About",
+      "services": "In the **Services** section, you can use our developments implemented as web services. These are text analysis, video comparison, numerical data processing, conversation with a person's digital twin (under development), intellectual online game (under development).",
+      "offices": "In the **Offices** section, you can choose the type of our service, find answers to frequently asked questions about it, download a contract template and receive a commercial offer. Our services are additional professional education in the field of artificial intelligence, custom software development and data analysis, consultations on the creation and use of artificial intelligence systems in relation to your business processes, and the development of online courses.",
+      "publications": "The **Publications** section contains a structured list of scientific and educational publications and works of project participants, as well as publications of other authors, if they have a broadcast license, or links to these publications for access to them in online libraries and stores.",
+      "contacts": "**Contacts** will allow you to find us at BSTU named after V.G. Shukhov, in instant messengers or social networks, and also send us a message."
+    }
+  }
+}
+
+
+

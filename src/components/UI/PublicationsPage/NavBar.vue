@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import { ref, getCurrentInstance } from 'vue'
-import UpdateLocaleWindow from './UpdateLocaleWindow.vue';
+import {ref, getCurrentInstance, onMounted, watch} from 'vue'
 const { t, locale } = useI18n({ useScope: 'global' });
+import {onBeforeRouteLeave, onBeforeRouteUpdate, useRoute, useRouter} from "vue-router";
 
 let instance = getCurrentInstance();
 const toggleLocale = (lang: string) => {
@@ -10,6 +10,7 @@ const toggleLocale = (lang: string) => {
     locale.value = lang;
     location.reload();
 }
+
 </script>
 <template>
   <div class="main-container">
@@ -18,37 +19,37 @@ const toggleLocale = (lang: string) => {
             <!-- Left elements -->
             <div class="d-flex">
                 <!-- Brand -->
-                <a class="navbar-brand me-2 mb-1 d-flex align-items-center">
-                    <img src="img/logo.png" loading="lazy" class="logo-image" />
-                </a>
+                <router-link :to="'/'" class="navbar-brand me-2 mb-1 d-flex align-items-center">
+                    <img src="img/logo.svg" loading="lazy" class="logo-image"/>
+                </router-link>
             </div>
             <!-- Left elements -->
 
             <!-- Center elements -->
             <ul class="navbar-nav flex-row d-none d-md-flex">
-                <li class="nav-item active">
-                    <a class="nav-link" >{{ $t('navbar.about') }}</a>
+                <li class="nav-item">
+                    <router-link :to="'/'" class="nav-link"  >{{ $t('navbar.about') }}</router-link>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.news') }}</a>
+                    <router-link :to="'/news'" class="nav-link" >{{ $t('navbar.news') }}</router-link>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.offices') }}</a>
+                  <router-link :to="'/offices'" class="nav-link" >{{ $t('navbar.offices') }}</router-link>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.services') }}</a>
+                    <router-link :to="'/services'" class="nav-link" >{{ $t('navbar.services') }}</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.partners') }}</a>
+                    <router-link :to="'/partners'" class="nav-link" >{{ $t('navbar.partners') }}</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.publications') }}</a>
+                    <router-link :to="'/publications'" class="nav-link active" >{{ $t('navbar.publications') }}</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" >{{ $t('navbar.contacts') }}</a>
+                    <router-link :to="'/contacts'" class="nav-link" >{{ $t('navbar.contacts') }}</router-link>
                 </li>
             </ul>
             <!-- Center elements -->

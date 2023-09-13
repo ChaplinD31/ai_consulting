@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import NavBar from '@/components/UI/NavBar.vue';
+import NavBar from '@/components/UI/Home Page/NavBar.vue';
 import NewsComponent from "@/components/UI/Home Page/NewsComponent.vue";
 import ServicesComponent from "@/components/UI/Home Page/ServicesComponent.vue";
 import OfficesComponent from "@/components/UI/Home Page/OfficesComponent.vue";
 import PartnersComponent from "@/components/UI/Home Page/PartnersComponent.vue";
 import PreviewComponent from "@/components/UI/Home Page/PreviewComponent.vue";
 import AboutComponent from "@/components/UI/Home Page/AboutComponent.vue";
-import ContactsComponent from "@/components/UI/Home Page/ContactsComponent.vue";
+import ContactsComponent from "@/components/UI//ContactsBlueComponent.vue";
 import FooterComponent from "@/components/UI/FooterComponent.vue";
 
 </script>

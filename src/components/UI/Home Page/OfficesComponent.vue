@@ -12,7 +12,7 @@ getOffices.then(res => {
 <template>
   <div class="section">
     <div class="text-container">
-      <h4>{{offices.title}}</h4>
+      <h3>{{offices.title}}</h3>
       <p>{{offices.description}}.</p>
     </div>
     <div class="container">

@@ -6,6 +6,8 @@ import OfficesComponent from "@/components/UI/Home Page/OfficesComponent.vue";
 import PartnersComponent from "@/components/UI/Home Page/PartnersComponent.vue";
 import PreviewComponent from "@/components/UI/Home Page/PreviewComponent.vue";
 import AboutComponent from "@/components/UI/Home Page/AboutComponent.vue";
+import ContactsComponent from "@/components/UI/Home Page/ContactsComponent.vue";
+import FooterComponent from "@/components/UI/FooterComponent.vue";
 
 </script>
 
@@ -21,7 +23,8 @@ import AboutComponent from "@/components/UI/Home Page/AboutComponent.vue";
     <ServicesComponent/>
     <OfficesComponent/>
     <PartnersComponent/>
-
+    <ContactsComponent/>
+    <FooterComponent/>
   </div>
 </template>
 

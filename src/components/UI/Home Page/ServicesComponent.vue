@@ -8,7 +8,7 @@ const {t, locale} = useI18n({useScope: 'global'});//подключение ло�
 <template>
   <div class="section">
     <div class="text-container">
-      <h4>{{ $t('sections.services.title') }}</h4>
+      <h3>{{ $t('sections.services.title') }}</h3>
       <p>{{ $t('sections.services.description') }}.</p>
     </div>
     <div class="services-container">

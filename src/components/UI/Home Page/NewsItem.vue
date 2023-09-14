@@ -15,7 +15,7 @@
 .container-fluid {
     border-radius: 4px;
     min-height: 5rem;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
     box-shadow: 1px 1px gray;
 }

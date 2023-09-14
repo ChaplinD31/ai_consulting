@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBar from '@/components/UI/Home Page/NavBar.vue';
+import NavBar from '@/components/UI/NavBar.vue';
 import NewsComponent from "@/components/UI/Home Page/NewsComponent.vue";
 import ServicesComponent from "@/components/UI/Home Page/ServicesComponent.vue";
 import OfficesComponent from "@/components/UI/Home Page/OfficesComponent.vue";
@@ -12,7 +12,7 @@ import FooterComponent from "@/components/UI/FooterComponent.vue";
 </script>
 
 <template>
-  <NavBar/>
+  <NavBar :path="'home'"/>
   <div class="top-container">
     <PreviewComponent/>
     <AboutComponent/>

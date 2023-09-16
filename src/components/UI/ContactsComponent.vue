@@ -1,5 +1,18 @@
 <script setup lang="ts">
-
+let props=defineProps({
+  theme:{
+    type: String,
+    require: true
+  }
+})
+const images={
+  vk: require(`@/assets/contacts/${props.theme}/vk_logo_icon.svg`),
+  tg: require(`@/assets/contacts/${props.theme}/tg_logo_icon.svg`),
+  email: require(`@/assets/contacts/${props.theme}/email_logo_icon.svg`),
+  phone: require(`@/assets/contacts/${props.theme}/phone_logo_icon.svg`),
+  spot: require(`@/assets/contacts/${props.theme}/spot_logo_icon.svg`),
+  github: require(`@/assets/contacts/${props.theme}/github_logo_icon.svg`)
+}
 </script>
 
 <template>
@@ -14,11 +27,11 @@
           <label for="vk"><a href="https://vk.com">VKontakte</a> </label>
         </div>
         <div class="contact-item">
-          <img src="img/contacts/white/tg_logo_icon.svg" id="tg-chanel" class="logo">
+          <img :src="images.tg" id="tg-chanel" class="logo">
           <label for="tg-chanel"><a href="https://tg.com">Telegram-канал</a> </label>
         </div>
         <div class="contact-item">
-          <img src="img/contacts/white/tg_logo_icon.svg" id="tg-bot" class="logo">
+          <img :src="images.tg" id="tg-bot" class="logo">
           <label for="tg-chanel"><a href="https://tg.com">Telegram-бот</a> </label>
         </div>
       </div>
@@ -26,11 +39,11 @@
         <p>Свяжитесь с нами</p>
         <div class="contact-item">
           <div class="contact-item">
-            <img src="img/contacts/white/phone_logo_icon.svg" id="phone" class="logo">
+            <img :src="images.phone" id="phone" class="logo">
             <label for="phobe"><a href="tel:123456789">123-456-789</a> </label>
           </div>
           <div class="contact-item">
-            <img src="img/contacts/white/email_logo_icon.svg" id="email" class="logo">
+            <img :src="images.email" id="email" class="logo">
             <label for="email"><a href="mailto:mail@mail.ru">mail@mail.ru</a> </label>
           </div>
         </div>
@@ -38,7 +51,7 @@
       <div class="col-12 col-md-2">
         <p>Официальный репозиторий</p>
         <div class="contact-item">
-          <img src="img/contacts/white/github_logo_icon.svg" id="github" class="logo">
+          <img :src="images.github" id="github" class="logo">
           <label for="email"><a href="https://github.com">github.com</a> </label>
         </div>
       </div>

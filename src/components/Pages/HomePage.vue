@@ -6,7 +6,7 @@ import OfficesComponent from "@/components/UI/Home Page/OfficesComponent.vue";
 import PartnersComponent from "@/components/UI/Home Page/PartnersComponent.vue";
 import PreviewComponent from "@/components/UI/Home Page/PreviewComponent.vue";
 import AboutComponent from "@/components/UI/Home Page/AboutComponent.vue";
-import ContactsComponent from "@/components/UI//ContactsBlueComponent.vue";
+import ContactsComponent from "@/components/UI//ContactsComponent.vue";
 import FooterComponent from "@/components/UI/FooterComponent.vue";
 
 </script>
@@ -23,7 +23,7 @@ import FooterComponent from "@/components/UI/FooterComponent.vue";
     <ServicesComponent/>
     <OfficesComponent/>
     <PartnersComponent/>
-    <ContactsComponent/>
+    <ContactsComponent :theme="'blue'"/>
     <FooterComponent/>
   </div>
 </template>

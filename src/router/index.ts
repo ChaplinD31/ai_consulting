@@ -6,6 +6,7 @@ import OfficesPage from "@/components/Pages/OfficesPage.vue";
 import ServicesPage from "@/components/Pages/ServicesPage.vue";
 import PartnersPage from "@/components/Pages/PartnersPage.vue";
 import ContactsPage from "@/components/Pages/ContactsPage.vue";
+import NotFound from "@/components/Pages/NotFound.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -14,8 +15,8 @@ const routes: Array<RouteRecordRaw> = [
     component: HomePage
   },
   {
-    path: '/news',
-    name: 'news',
+    path: '/news/:id',
+    name: 'news_item',
     component: NewsPage
   },
   {
@@ -42,6 +43,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/contacts',
     name: 'contacts',
     component: ContactsPage
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFound
   }
 ]
 

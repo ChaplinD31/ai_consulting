@@ -15,6 +15,9 @@ let props=defineProps({
     default: 'home'
   }
 })
+const image={
+  logo: require('@/assets/logo.svg')
+}
 
 </script>
 <template>
@@ -25,7 +28,7 @@ let props=defineProps({
             <div class="d-flex">
                 <!-- Brand -->
                 <router-link :to="'/'" class="navbar-brand me-2 mb-1 d-flex align-items-center">
-                    <img src="img/logo.svg" loading="lazy" class="logo-image"/>
+                    <img :src="image.logo" loading="lazy" class="logo-image"/>
                 </router-link>
             </div>
             <!-- Left elements -->
@@ -37,14 +40,6 @@ let props=defineProps({
                         :to="'/'"
                         :class="{'nav-link active': props.path=='home', 'nav-link': props.path!='home'}"
                     >{{ $t('navbar.about') }}
-                    </router-link>
-                </li>
-
-                <li class="nav-item">
-                    <router-link
-                        :to="'/news'"
-                        :class="{'nav-link active': props.path=='news', 'nav-link': props.path!='news'}"
-                    >{{ $t('navbar.news') }}
                     </router-link>
                 </li>
 

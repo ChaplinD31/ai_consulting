@@ -2,11 +2,15 @@
 import {useI18n} from 'vue-i18n';
 import NewsItem from "@/components/UI/Home Page/NewsItem.vue";
 import {getNews} from "@/api/requests";
+
 const {t, locale} = useI18n({useScope: 'global'});//подключение локализатора
 
 import {onMounted, reactive, ref} from "vue";
-onMounted(()=>{
-  getNews(1).then(res=>console.log(res))
+let news = ref(), pagination;
+getNews(1).then((res) => {
+
+  news.value=res.data.data;
+  pagination=res.data.meta.pagination;
 })
 
 </script>
@@ -15,10 +19,9 @@ onMounted(()=>{
   <div class="news">
     <h1 class="section-news-title">{{ $t('sections.news') }}</h1>
     <div class="news-container">
-      <NewsItem/>
-      <NewsItem/>
-      <NewsItem/>
-      <NewsItem/>
+      <template v-for="item in news" :key="item.id">
+        <NewsItem :id="item.id" :title="item.attributes.title" :description="item.attributes.description_short"/>
+      </template>
     </div>
   </div>
 </template>

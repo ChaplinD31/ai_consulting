@@ -43,7 +43,8 @@ export const getNews =  (page: number) => {
                 methods.get,
                 'news',
                 {
-                    locale: localStorage.getItem('locale')
+                    locale: localStorage.getItem('locale'),
+                    populate: '*'
                 }
             )
         )

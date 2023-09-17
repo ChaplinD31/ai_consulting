@@ -1,17 +1,29 @@
-<script setup lang="ts">
+<script setup lang="js">
 import {useI18n} from 'vue-i18n';
 import NewsItem from "@/components/UI/Home Page/NewsItem.vue";
 import {getNews} from "@/api/requests";
+import Paginate from "vuejs-paginate-next";
+
 
 const {t, locale} = useI18n({useScope: 'global'});//подключение локализатора
 
 import {onMounted, reactive, ref} from "vue";
 let news = ref(), pagination;
-getNews(1).then((res) => {
-
-  news.value=res.data.data;
-  pagination=res.data.meta.pagination;
+let current_page=0;
+const showNews=(page)=>{
+  getNews(page).then((res) => {
+    news.value=res.data.data;
+    pagination=res.data.meta.pagination;
+    console.log(news.value)
+  })
+}
+onMounted(()=>{
+  showNews(0)
 })
+const showPage=(page)=>{
+  current_page=page;
+  showNews(page)
+}
 
 </script>
 
@@ -20,8 +32,22 @@ getNews(1).then((res) => {
     <h1 class="section-news-title">{{ $t('sections.news') }}</h1>
     <div class="news-container">
       <template v-for="item in news" :key="item.id">
-        <NewsItem :id="item.id" :title="item.attributes.title" :description="item.attributes.description_short"/>
+        <NewsItem :id="item.id"
+                  :title="item.attributes.title"
+                  :description="item.attributes.description_short"
+                  :date="item.attributes.updatedAt"
+        />
       </template>
+    </div>
+    <div class="pagination-line" v-if="pagination!=null">
+      <paginate
+          :page-count="pagination.pageCount"
+          :click-handler="showPage"
+          :prev-text="'<'"
+          :next-text="'>'"
+          :container-class="'pagination'"
+      >
+      </paginate>
     </div>
   </div>
 </template>
@@ -44,5 +70,8 @@ getNews(1).then((res) => {
 .news {
   padding-left: 10%;
   padding-right: 10%;
+}
+.pagination-line{
+  margin-top: 25px;
 }
 </style>

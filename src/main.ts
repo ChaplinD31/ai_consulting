@@ -22,4 +22,6 @@ createApp(App,{
         const {t} = useI18n();
         return {t};
     }
-}).use(i18n).use(router).mount('#app')
+}).use(i18n).
+    use(router).
+    mount('#app')

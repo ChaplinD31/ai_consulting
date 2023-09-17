@@ -35,6 +35,21 @@
       "offices": "In the **Offices** section, you can choose the type of our service, find answers to frequently asked questions about it, download a contract template and receive a commercial offer. Our services are additional professional education in the field of artificial intelligence, custom software development and data analysis, consultations on the creation and use of artificial intelligence systems in relation to your business processes, and the development of online courses.",
       "publications": "The **Publications** section contains a structured list of scientific and educational publications and works of project participants, as well as publications of other authors, if they have a broadcast license, or links to these publications for access to them in online libraries and stores.",
       "contacts": "**Contacts** will allow you to find us at BSTU named after V.G. Shukhov, in instant messengers or social networks, and also send us a message."
+    },
+    "contacts": {
+      "title": "Contacts",
+      "social_networks": {
+        "title": "Our social networks",
+        "vk": "VKontakte",
+        "tg_chanel": "Telegram-chanel",
+        "tg_bot": "Telegram-bot"
+      },
+      "contact_us": "Contact us",
+      "repository": "Official repository",
+      "address":{
+        "title": "Address",
+        "location": "g. Belgorod, ul. Kostiukova, d. 41"
+      }
     }
   }
 }

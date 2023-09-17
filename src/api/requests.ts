@@ -41,10 +41,45 @@ export const getNews =  (page: number) => {
         const response= axios(
             config(
                 methods.get,
-                'news',
+                `news`,
                 {
                     locale: localStorage.getItem('locale'),
-                    populate: '*'
+                    populate: '*',
+                    'pagination[pageSize]': '5',
+                    'pagination[page]': page
+
+                }
+            )
+        )
+        resolve(response);
+        //reject('error get news')
+    });
+};
+export const getNewsItem =  (id: string) => {
+    return new Promise(function (resolve, reject) {
+        const response= axios(
+            config(
+                methods.get,
+                `news/${id}`,
+                {
+                    locale: localStorage.getItem('locale'),
+                    populate: '*',
+                }
+            )
+        )
+        resolve(response);
+        reject('error get news')
+    });
+};
+export const getAnotherNewsItem =  (id: string) => {
+    return new Promise(function (resolve, reject) {
+        const response= axios(
+            config(
+                methods.get,
+                `news?filters[id][$ne]=${id}`,
+                {
+                    locale: localStorage.getItem('locale'),
+                    populate: '*',
                 }
             )
         )

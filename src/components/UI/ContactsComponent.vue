@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {CONTACTS_LINK} from "@/values";
+import {useI18n} from "vue-i18n";
+
 let props=defineProps({
   theme:{
     type: String,
@@ -13,53 +16,58 @@ const images={
   spot: require(`@/assets/contacts/${props.theme}/spot_logo_icon.svg`),
   github: require(`@/assets/contacts/${props.theme}/github_logo_icon.svg`)
 }
+const {t}=useI18n({useScope: 'global'});
 </script>
 
 <template>
   <div class="section">
-    <h5 class="contacts-title">Контакты</h5>
+    <h5 class="contacts-title">{{t('sections.contacts.title')}}</h5>
     <hr class="contacts-devider">
     <div class="row">
       <div class="col-12 col-md-2">
-        <p>Мы в социальных сетях</p>
+        <p>{{t('sections.contacts.social_networks.title')}}</p>
         <div class="contact-item">
-          <img src="img/contacts/white/vk_logo_icon.svg" id="vk" class="logo">
-          <label for="vk"><a href="https://vk.com">VKontakte</a> </label>
+          <img :src="images.vk" id="vk" class="logo">
+          <label for="vk"><a :href="CONTACTS_LINK.vk">{{t('sections.contacts.social_networks.vk')}}</a> </label>
         </div>
         <div class="contact-item">
           <img :src="images.tg" id="tg-chanel" class="logo">
-          <label for="tg-chanel"><a href="https://tg.com">Telegram-канал</a> </label>
+          <label for="tg-chanel"><a :href="CONTACTS_LINK.tg_chanel">
+            {{t('sections.contacts.social_networks.tg_chanel')}}
+          </a> </label>
         </div>
         <div class="contact-item">
           <img :src="images.tg" id="tg-bot" class="logo">
-          <label for="tg-chanel"><a href="https://tg.com">Telegram-бот</a> </label>
+          <label for="tg-chanel"><a :href="CONTACTS_LINK.tg_bot">
+            {{t('sections.contacts.social_networks.tg_bot')}}
+          </a> </label>
         </div>
       </div>
       <div class="col-12 col-md-2">
-        <p>Свяжитесь с нами</p>
+        <p>{{t('sections.contacts.contact_us')}}</p>
         <div class="contact-item">
           <div class="contact-item">
             <img :src="images.phone" id="phone" class="logo">
-            <label for="phobe"><a href="tel:123456789">123-456-789</a> </label>
+            <label for="phone"><a :href="`tel:${CONTACTS_LINK.phone}`">{{CONTACTS_LINK.phone}}</a> </label>
           </div>
           <div class="contact-item">
             <img :src="images.email" id="email" class="logo">
-            <label for="email"><a href="mailto:mail@mail.ru">mail@mail.ru</a> </label>
+            <label for="email"><a :href="`mailto:${CONTACTS_LINK.mail}`">{{CONTACTS_LINK.mail}}</a> </label>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-2">
-        <p>Официальный репозиторий</p>
+        <p>{{t('sections.contacts.repository')}}</p>
         <div class="contact-item">
           <img :src="images.github" id="github" class="logo">
-          <label for="email"><a href="https://github.com">github.com</a> </label>
+          <label for="email"><a :href="CONTACTS_LINK.github">github.com</a> </label>
         </div>
       </div>
       <div class="col-12 col-md-6">
-        <p>Адрес</p>
+        <p>{{t('sections.contacts.address.title')}}</p>
         <div class="contact-item">
-          <img src="img/contacts/white/spot_logo_icon.svg" id="address" class="logo">
-          <label for="address"><a href="#">г. Белгород, ул. Костюкова, д. 41</a> </label>
+          <img :src="images.spot" id="address" class="logo">
+          <label for="address"><a href="#">{{t('sections.contacts.address.location')}}</a> </label>
         </div>
       </div>
     </div>

@@ -71,7 +71,7 @@ export const getNewsItem =  (id: string) => {
         reject('error get news')
     });
 };
-export const getAnotherNewsItem =  (id: string) => {
+export const getAnotherNewsItem =  (id: string, page: string) => {
     return new Promise(function (resolve, reject) {
         const response= axios(
             config(
@@ -80,6 +80,8 @@ export const getAnotherNewsItem =  (id: string) => {
                 {
                     locale: localStorage.getItem('locale'),
                     populate: '*',
+                    'pagination[pageSize]': '3',
+                    'pagination[page]': page
                 }
             )
         )

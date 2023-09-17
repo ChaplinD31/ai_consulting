@@ -4,37 +4,52 @@ import NavBar from "@/components/UI/NavBar.vue";
 import ContactsComponent from "@/components/UI/ContactsComponent.vue";
 import FooterComponent from "@/components/UI/FooterComponent.vue";
 import {useRoute} from "vue-router";
-import {getAnotherNewsItem, getNewsItem} from "@/api/requests";
-import {reactive, ref} from "vue";
+import {getAnotherNewsItem, getNews, getNewsItem} from "@/api/requests";
+import {onMounted, onUpdated, reactive, ref} from "vue";
 import {PATH} from "@/values";
 import * as marked from "marked";
+import CardItem from "@/components/UI/CardItem.vue";
+import NewsCard from "@/components/UI/NewsPage/NewsCard.vue";
+import Paginate from "vuejs-paginate-next";
+import {useI18n} from "vue-i18n";
 
 
 const routs=useRoute();
 let title=ref(), description_short=ref(), description=ref(), image=ref(), day=ref();//основная статья
-let related_news=ref();//связанные статьи
-getNewsItem(String(routs.params.id)).then(res=>{
-  console.log(res);
-  image.value=res.data.data.attributes.image.data.attributes.url;
-  title.value=res.data.data.attributes.title;
-  day.value=new Date(String(res.data.data.attributes.updatedAt)).toLocaleDateString();
-  description.value=res.data.data.attributes.description;
-  description_short.value=res.data.data.attributes.description_short;
-})
-getAnotherNewsItem(String(routs.params.id)).then(res=>{
-  console.log('filtered')
-  console.log(res)
-})
-const formatDate=(date)=>{
-  let out=date;
-  if(Number(date)<10){
-    date='0'+date;
-  }
-  return date;
+
+const getMainNews=(id)=>{
+  getNewsItem(id).then(res=>{
+    console.log(res);
+    image.value=res.data.data.attributes.image.data.attributes.url;
+    title.value=res.data.data.attributes.title;
+    day.value=new Date(String(res.data.data.attributes.updatedAt)).toLocaleDateString();
+    description.value=res.data.data.attributes.description;
+    description_short.value=res.data.data.attributes.description_short;
+  })
 }
+let related_news=ref();//связанные статьи
+let current_page=1, pagination;
+let {t}=useI18n({useScope:'global'});
+const showNews=(page)=>{
+  getAnotherNewsItem(String(routs.params.id), String(page)).then(res=>{
+    related_news.value=res.data.data;
+    pagination=res.data.meta.pagination;
+    console.log("related")
+    console.log(related_news.value)
+  })
+}
+const showPage=(page)=>{
+  current_page=page;
+  showNews(page)
+}
+onMounted(()=>{
+  getMainNews(String(routs.params.id));
+  showPage(1);
+})
 const toHTML=(marks)=>{
   return marked.parse(marks);
 }
+
 </script>
 
 <template>
@@ -51,7 +66,30 @@ const toHTML=(marks)=>{
       </div>
     </div>
     <div class="related">
+      <hr>
+      <p class="mt-4 mb-4 another-news-title">{{t('sections.news.read_another_news')}}</p>
+      <div class="row row-cols-1 row-cols-md-3 justify-content-md-around justify-content-center">
+        <template v-for="item in related_news" :key="item.id">
+          <NewsCard
+              :date="item.attributes.updatedAt"
+              :title="item.attributes.title"
+              :description="item.attributes.description_short"
+              :image="item.attributes.image.data.attributes.url"
+              :id="item.id"
+              />
+        </template>
 
+      </div>
+      <div class="pagination-line " v-if="pagination!=null">
+        <paginate
+            :page-count="pagination.pageCount"
+            :click-handler="showPage"
+            :prev-text="'<'"
+            :next-text="'>'"
+            :container-class="'pagination'"
+        >
+        </paginate>
+      </div>
     </div>
 
     <ContactsComponent :theme="'white'"/>
@@ -98,6 +136,16 @@ const toHTML=(marks)=>{
 }
 .related{
   padding-left: 10%;
-  padding-left: 10%;
+  padding-right: 10%;
+}
+hr{
+  border-color: #5c636a;
+}
+.pagination-line{
+  margin-top: 25px;
+}
+.another-news-title{
+  font-size: 13pt;
+  font-weight: bold;
 }
 </style>

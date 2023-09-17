@@ -18,7 +18,7 @@ const showNews=(page)=>{
   })
 }
 onMounted(()=>{
-  showNews(0)
+  showNews(1)
 })
 const showPage=(page)=>{
   current_page=page;
@@ -29,7 +29,7 @@ const showPage=(page)=>{
 
 <template>
   <div class="news">
-    <h1 class="section-news-title">{{ $t('sections.news') }}</h1>
+    <h1 class="section-news-title">{{ $t('sections.news.title') }}</h1>
     <div class="news-container">
       <template v-for="item in news" :key="item.id">
         <NewsItem :id="item.id"
@@ -39,7 +39,7 @@ const showPage=(page)=>{
         />
       </template>
     </div>
-    <div class="pagination-line" v-if="pagination!=null">
+    <div class="pagination-line " v-if="pagination!=null">
       <paginate
           :page-count="pagination.pageCount"
           :click-handler="showPage"
@@ -73,5 +73,9 @@ const showPage=(page)=>{
 }
 .pagination-line{
   margin-top: 25px;
+}
+.page-link{
+  margin-left: 2px;
+  margin-right: 2px;
 }
 </style>

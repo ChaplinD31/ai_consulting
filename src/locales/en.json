@@ -18,7 +18,13 @@
       "data-mining": "Data-mining",
       "thematic-modelling": "Thematic modelling"
     },
-    "news": "News",
+    "news": {
+      "title": "News",
+      "read_more_page": "Read more...",
+      "read_more_section": "Read next →",
+      "read_another_news": "See more news on the topic:",
+      "back": "← Return to main page"
+    },
     "services": {
       "title": "Services for data processing",
       "description": "Our business is not as simple as it might seem: the strengthening and development of the internal structure ensures the relevance of the analysis of existing patterns of behavior. It should be noted that the deep level of immersion directly depends on."

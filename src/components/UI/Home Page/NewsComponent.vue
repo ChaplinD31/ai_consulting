@@ -28,7 +28,7 @@ const showPage=(page)=>{
 </script>
 
 <template>
-  <div class="news">
+  <div class="news" id="news">
     <h1 class="section-news-title">{{ $t('sections.news.title') }}</h1>
     <div class="news-container">
       <template v-for="item in news" :key="item.id">

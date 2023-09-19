@@ -17,7 +17,7 @@ getAbout.then(res => {
 </script>
 
 <template>
-  <div class="row">
+  <div class="row" id="about">
     <div class="container-fluid">
       <div class="text-container">
         <h4 class="section-titul-title">{{ $t('sections.about.title') }}</h4>

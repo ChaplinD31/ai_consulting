@@ -10,7 +10,7 @@ getPartners.then(res=>partners.value=res.data.data)
 </script>
 
 <template>
-  <div class="section">
+  <div class="section" id="partners">
     <div class="text-container">
       <h3 class="mb-4">{{ $t('sections.partners') }}</h3>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-sm-around">

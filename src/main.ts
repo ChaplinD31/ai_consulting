@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import 'bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css"
+import VueScrollTo from 'vue-scrollto'
 import { createI18n, useI18n } from 'vue-i18n'
 import {defaulLocale, langs} from '@/locales/index';
 
@@ -24,4 +25,17 @@ createApp(App,{
     }
 }).use(i18n).
     use(router).
+use(VueScrollTo, {
+    container: "body",
+    duration: 500,
+    easing: "ease",
+    offset: 0,
+    force: true,
+    cancelable: true,
+    onStart: false,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+}).
     mount('#app')

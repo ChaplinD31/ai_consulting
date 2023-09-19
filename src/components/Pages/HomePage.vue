@@ -8,6 +8,18 @@ import PreviewComponent from "@/components/UI/Home Page/PreviewComponent.vue";
 import AboutComponent from "@/components/UI/Home Page/AboutComponent.vue";
 import ContactsComponent from "@/components/UI//ContactsComponent.vue";
 import FooterComponent from "@/components/UI/FooterComponent.vue";
+import {onMounted, onUnmounted} from "vue";
+import VueScrollTo from "vue-scrollto";
+onMounted(()=>{
+  if(localStorage.getItem('path')!=null){
+    VueScrollTo.scrollTo(`#${localStorage.getItem('path')}`);
+    localStorage.removeItem('path')
+  }
+    }
+)
+onUnmounted(()=>{
+  localStorage.removeItem('path')
+})
 
 </script>
 

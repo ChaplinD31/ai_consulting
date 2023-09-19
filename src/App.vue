@@ -5,6 +5,7 @@ import { defaulLocale } from './locales';
 const {t, locale} = useI18n({useScope:'global'});
 
 onMounted(()=>{
+  localStorage.removeItem('path')
   //проверка на наличие сохраненных настроек локализации
   if(localStorage.getItem('locale')===null){
     localStorage.setItem('locale', 'ru');//устанавливаем русскую локализацию по умолчанию

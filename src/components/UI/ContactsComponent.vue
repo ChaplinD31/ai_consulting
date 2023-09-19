@@ -20,7 +20,7 @@ const {t}=useI18n({useScope: 'global'});
 </script>
 
 <template>
-  <div class="section">
+  <div class="section" id="contacts">
     <h5 class="contacts-title">{{t('sections.contacts.title')}}</h5>
     <hr class="contacts-devider">
     <div class="row">
